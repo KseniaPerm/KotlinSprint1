@@ -4,24 +4,17 @@ fun main() {
     val year = 1961
     var hour = 9
     var minute = 7
+    val fullHour: String = "0$hour"
+    val fullMinute:String = "0$minute"
 
     println(year)
-    println(hour)
-    println(minute)
+    println(fullHour)
+    println(fullMinute)
 
     hour = 10
     minute = 55
-    print(hour)
+    print(fullHour)
     print(":")
-    print(minute)
-
-
+    print(fullMinute)
    // println("$hour:$minute")
-
-
-
-
-
-
-
 }
