@@ -10,7 +10,6 @@ fun main() {
     println(year)
     println(fullHour)
     println(fullMinute)
-
     hour = 10
     minute = 55
     print(fullHour)
