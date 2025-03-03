@@ -9,9 +9,4 @@ fun main() {
     val apogee: Int = 327000
 
     println("$length\n$age\n$partOfDay\n$seconds\n$partOfYear\n$apogee")
-
-
-
-
-
 }
