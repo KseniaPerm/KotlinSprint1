@@ -1,4 +1,4 @@
-package org.example.Lesson_2
+package org.example.lesson_2
 
 fun main() {
     val person1 = 3
