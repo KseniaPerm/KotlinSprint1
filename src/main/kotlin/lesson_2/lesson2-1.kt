@@ -9,4 +9,5 @@ fun main() {
     val personTotal = 4
     val average = total / personTotal
     println(average)
+
 }
