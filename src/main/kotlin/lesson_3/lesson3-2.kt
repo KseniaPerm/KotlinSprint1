@@ -6,6 +6,7 @@ fun main() {
     val patronymic = "Сергеевна"
     var age = 20
     println("$lastname $name $patronymic, $age" )
+    println()
     lastname = "Сидорова"
     age = 22
     println("$lastname $name $patronymic, $age" )
