@@ -1,11 +1,14 @@
 package org.example.lesson_3
 
 fun main() {
-   var playersMove = "D2-D4;0"
-   var moveFrom = "D2"
-   var moveTo = "D4"
-   var strokeNumber = 0
-   println(moveFrom)
-   println(moveTo)
-   println(strokeNumber)
+    val playersMove = "D2-D4;0"
+
+    val playersMoveList: List<String> = playersMove.split("-", ";")
+    val moveFrom = playersMoveList[0]
+    val moveTo = playersMoveList[1]
+    val move = playersMoveList[2]
+
+    println(moveFrom)
+    println(moveTo)
+    println(move)
 }
