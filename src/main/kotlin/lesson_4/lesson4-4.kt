@@ -2,14 +2,12 @@ package org.example.lesson_4
 
 fun main() {
     val dayOfWorkout = 5
-    val exerciseArmsAndPress: Boolean = (dayOfWorkout % 2) != 0
-    val exerciseLegsAndBack: Boolean = (dayOfWorkout % 2) == 0
-
+    val exercise: Boolean = (dayOfWorkout % 2) == 0
     val comparisonResult = """
-        Упражнения для рук: $exerciseArmsAndPress
-        Упражнения для ног: $exerciseLegsAndBack
-        Упражнения для спины: $exerciseLegsAndBack
-        Упражнения для пресса: $exerciseArmsAndPress
+        Упражнения для рук: ${!exercise}
+        Упражнения для ног: $exercise
+        Упражнения для спины: $exercise
+        Упражнения для пресса: ${!exercise}
     """.trimIndent()
     println(comparisonResult)
 }
