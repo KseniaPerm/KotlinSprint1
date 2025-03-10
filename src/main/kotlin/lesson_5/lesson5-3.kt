@@ -15,10 +15,8 @@ fun main() {
     val correctNumber2 = (userNumber2 == number1) || (userNumber2 == number2)
     if (correctNumber1 && correctNumber2) {
         println("Поздравляем, вы выиграли главный приз!")
-    } else if (correctNumber1) {
+    } else if (correctNumber1 || correctNumber2) {
         println("Вы выиграли утешительный приз!")
-    } else if (correctNumber2) {
-        println("вы выиграли утешительный приз")
     } else {
         println("Неудача!")
     }
