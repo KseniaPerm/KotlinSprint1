@@ -26,15 +26,13 @@ fun main() {
 
     println("Ваши введеные числа : $userNumbers")
     val compare = userNumbers.intersect(winningNumbers.toSet()).size
-    if (compare == 1) {
-        println("Вы угадали одно число, для вас утешительный приз!")
-    } else if (compare == 2) {
-        println("Вы угадали два числа и получаете крупный приз!")
-    } else if (compare == 3) {
-        println("Вы угадали все числа и выиграли джекпот!")
-    } else {
-        println("Вы не угадали ни одного числа.")
+    when (compare) {
+        3 -> println("Вы угадали все числа и выиграли джекпот!")
+        2 -> println("Вы угадали два числа и получаете крупный приз!")
+        1 -> println("Вы угадали все числа и выиграли джекпот!")
+        0 -> println("Вы не угадали ни одного числа.")
     }
+
     println("Выигрышные числа : $winningNumbers")
 }
 
