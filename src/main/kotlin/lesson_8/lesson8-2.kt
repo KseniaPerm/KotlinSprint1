@@ -10,21 +10,8 @@ fun main() {
     for (i in arrayOfIngredients) {
         if (i == ingredient) {
             println("Ингредиент $ingredient в списке есть")
-        } else {
-            println("Такого ингредиента  в рецепте нет")
+            return
         }
     }
+    println("Такого ингредиента  в рецепте нет")
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
