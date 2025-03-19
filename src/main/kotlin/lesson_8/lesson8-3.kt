@@ -1,6 +1,5 @@
 package org.example.lesson_8
 
-
 fun main() {
     val arrayOfIngredients: Array<String> =
         arrayOf("лист салата", "помидор", "соус", "сыр", "креветки", "соль", "перец")
