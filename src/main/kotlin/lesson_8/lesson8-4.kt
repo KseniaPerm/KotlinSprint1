@@ -11,7 +11,7 @@ fun main() {
     val ingredient = readln()
     val one = arrayOfIngredients.indexOf(ingredient)
 
-    if (ingredient !in arrayOfIngredients) {
+    if (one == -1) {
         println("Ингредиента нет в списке")
     } else {
         println("Введите ингредиент, который нужно добавить: ")
