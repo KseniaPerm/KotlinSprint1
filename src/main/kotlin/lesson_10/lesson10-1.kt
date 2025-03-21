@@ -4,9 +4,11 @@ import kotlin.random.Random
 
 fun main() {
     val rollUser = rollOfDice()
-    printUserThrow(rollUser)
+    printThrowRoll("Пользователь", rollUser)
+
     val rollComputer = rollOfDice()
-    printComputerThrow(rollComputer)
+    printThrowRoll("Компьютер", rollComputer)
+
     if (rollComputer > rollUser) {
         println()
         println("Победила машина")
@@ -22,12 +24,6 @@ fun rollOfDice(): Int {
     return Random.nextInt(1, 6)
 }
 
-fun printUserThrow(rollUser: Int) {
-    println("Бросок пользователя : ")
-    println("На кубиках выпало значение $rollUser")
-}
-
-fun printComputerThrow(rollComputer: Int) {
-    println("Бросок компьютера : ")
-    println("На кубиках выпало значение $rollComputer")
+fun printThrowRoll(player: String, throwRoll: Int) {
+    println("Бросок $player.\nНа кубиках выпало значение $throwRoll")
 }
