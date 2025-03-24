@@ -1,7 +1,7 @@
 package org.example.lesson_10
 
 fun main() {
-    if (lengthValidation(getLogin()) && lengthValidation(getPassword())) {
+    if (checkStringLength(getLogin()) && checkStringLength(getPassword())) {
         println("Приветствую!")
 
     } else {
@@ -9,16 +9,17 @@ fun main() {
     }
 }
 
-fun getLogin(): String? {
+fun getLogin(): String {
     println("Введите логин: ")
     return readln()
 }
 
-fun getPassword(): String? {
+fun getPassword(): String {
     println("Введите пароль: ")
     return readln()
 }
 
-fun lengthValidation(input: String?): Boolean {
-    return input!!.length >= 4
+fun checkStringLength(input: String?): Boolean {
+    return input!!.length >= MIN_LENGTH
 }
+const val MIN_LENGTH = 4
