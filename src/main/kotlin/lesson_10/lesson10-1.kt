@@ -9,7 +9,7 @@ fun main() {
     val rollComputer = rollOfDice()
     printThrowRoll("Компьютер", rollComputer)
 
-    if (rollComputer > rollUser) {
+  if (rollComputer > rollUser) {
         println()
         println("Победила машина")
     } else if (rollComputer < rollUser) {
@@ -20,8 +20,8 @@ fun main() {
     }
 }
 
-fun rollOfDice(): Int {
-    return Random.nextInt(1, 6)
+fun rollOfDice() {
+    Random.nextInt(1,6)
 }
 
 fun printThrowRoll(player: String, throwRoll: Int) {
