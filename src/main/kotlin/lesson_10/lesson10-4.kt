@@ -1,7 +1,5 @@
 package org.example.lesson_10
 
-import kotlin.random.Random
-
 fun main() {
     var userWin = 0
     do {
@@ -28,7 +26,7 @@ fun main() {
 }
 
 fun rollOfDices(): Int {
-    return Random.nextInt(1, 6)
+    return (1..6).random()
 }
 
 fun printThrowRolls(player: String, throwRoll: Int) {
