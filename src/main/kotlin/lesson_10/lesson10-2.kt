@@ -20,6 +20,7 @@ fun getPassword(): String {
 }
 
 fun checkStringLength(input: String?): Boolean {
-    return input!!.length >= MIN_LENGTH
+    return (input?.length ?: 0) >= MIN_LENGTH
 }
+
 const val MIN_LENGTH = 4
