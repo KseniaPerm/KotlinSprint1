@@ -1,7 +1,5 @@
 package org.example.lesson_10
 
-import kotlin.random.Random
-
 fun main() {
     val rollUser = rollOfDice()
     printThrowRoll("Пользователь", rollUser)
@@ -9,7 +7,7 @@ fun main() {
     val rollComputer = rollOfDice()
     printThrowRoll("Компьютер", rollComputer)
 
-  if (rollComputer > rollUser) {
+    if (rollComputer > rollUser) {
         println()
         println("Победила машина")
     } else if (rollComputer < rollUser) {
@@ -20,8 +18,8 @@ fun main() {
     }
 }
 
-fun rollOfDice() {
-    Random.nextInt(1,6)
+fun rollOfDice(): Int {
+    return (1..6).random()
 }
 
 fun printThrowRoll(player: String, throwRoll: Int) {
