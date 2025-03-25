@@ -1,24 +1,26 @@
 package org.example.lesson_10
 
+import kotlin.random.Random
+
 fun main() {
     println("Введите длину пароля : ")
     val length = readln().toInt()
-    getPasswordForUser(length)
+    val password = getPasswordForUser(length)
+    println(password)
 }
 
-fun getPasswordForUser(length: Int) {
-    val numbers = '0'..'9'
-    val chars = listOf(':', '!', '"', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/')
-    val password = mutableListOf<Char>()
-    for (i in 1..length) {
-        if (length % 2 == 0) {
-            password.add(numbers.random())
-
+fun getPasswordForUser(length: Int): String {
+    val range1 = (' '..'/').toList()
+    val range2 = ('0'..'9').toList()
+    var password = ""
+    for (i in 0 until length) {
+        if (i % 2 == 0) {
+            val figure = range1[Random.nextInt(range1.size)]
+            password += figure
         } else {
-            password.add(chars.random())
-
+            val char = range2[Random.nextInt(range2.size)]
+            password += char
         }
-        password.shuffle()
-        println(password.joinToString(""))
     }
+    return password
 }
