@@ -24,11 +24,12 @@ class User2(
         }
     }
 
-    fun changeUserPassword() {
+    fun changeUserPassword(newPassword: String) {
         println("Введите текущий пароль: ")
-        val input = readln()
-        if (input == password) {
-            println("Введите новый пароль: ")
+        val inputPassword = readln()
+        if (inputPassword == password) {
+            password = newPassword
+            println("Пароль изменен на $newPassword")
         } else {
             println("Пароли не совпадают")
         }
@@ -38,9 +39,10 @@ class User2(
 fun main() {
     user1.printUserInformation()
     user1.enteringData()
-    user1.changeUserPassword()
+    println("Введите новый пароль: ")
     val newPassword = readln()
-    println("Новый пароль изменен на $newPassword")
+    user1.changeUserPassword(newPassword)
+    user1.printUserInformation()
 }
 
 val user1 = User2(
