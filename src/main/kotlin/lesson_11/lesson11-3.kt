@@ -32,15 +32,14 @@ class Room(
         println(listOfUsers.joinToString())
     }
 
-    fun addUser(user: String) {
-        if (user in listOfUsers) {
+    fun addUser(userName: String, userNameNew: String) {
+        if (userName == userNameNew) {
             println("Участник уже зарагестрирован")
         } else {
-            listOfUsers.add(user)
-            println("Участник $user добавлен в список")
+            listOfUsers.add(userNameNew)
+            println("Участник $userNameNew добавлен в список")
         }
     }
-
 }
 
 fun main() {
@@ -53,8 +52,8 @@ fun main() {
     user.updateStatus(userName, newStatus)
     user.printUserInformation()
     println("Добавьте нового пользователя. Введите имя: ")
-    val user = readln()
-    room.addUser(user)
+    val userNameNew = readln()
+    room.addUser(userName, userNameNew)
     room.printRoomInformation()
 }
 
