@@ -33,7 +33,7 @@ class Room(
     }
 
     fun addUser(userName: String, userNameNew: String) {
-        if (userName == userNameNew) {
+        if (userName in listOfUsers) {
             println("Участник уже зарагестрирован")
         } else {
             listOfUsers.add(userNameNew)
