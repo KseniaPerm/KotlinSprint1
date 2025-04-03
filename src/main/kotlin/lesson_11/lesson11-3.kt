@@ -12,12 +12,6 @@ class User(
         println(profilePicture)
     }
 
-    fun updateStatus(user: String, newStatus: String) {
-        if (user == userName) {
-            userStatus = newStatus
-            println("Статус обновлен на $newStatus")
-        }
-    }
 }
 
 class Room(
@@ -33,11 +27,18 @@ class Room(
     }
 
     fun addUser(userName: String, userNameNew: String) {
-        if (userName in listOfUsers) {
+        if (listOfUsers.equals(userName)) {
             println("Участник уже зарагестрирован")
         } else {
             listOfUsers.add(userNameNew)
             println("Участник $userNameNew добавлен в список")
+        }
+    }
+
+    fun updateStatus(userName: String, newStatus: String) {
+        if (user.userName == userName) {
+            user.userStatus = newStatus
+            println("Статус обновлен на $newStatus")
         }
     }
 }
@@ -49,7 +50,7 @@ fun main() {
     val userName = readln()
     println("Введите новый статус: разговаривает/ микрофон выключен / пользователь заглушен")
     val newStatus = readln()
-    user.updateStatus(userName, newStatus)
+    room.updateStatus(userName, newStatus)
     user.printUserInformation()
     println("Добавьте нового пользователя. Введите имя: ")
     val userNameNew = readln()
