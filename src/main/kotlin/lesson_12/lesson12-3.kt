@@ -1,23 +1,23 @@
 package org.example.lesson_12
 
-class WeatherDays {
-    val dayTemperature: Int = 306
-    val nightTemperature: Int = 289
-    val precipitation: Boolean = false
+class WeatherDays(_dayTemperature: Int, _nightTemperature: Int, _precipitation: Boolean) {
+    val dayTemperature = _dayTemperature - KELVIN_TEMPERATURE
+    val nightTemperature = _nightTemperature - KELVIN_TEMPERATURE
+    val precipitation: Boolean = _precipitation
 
     fun printInfo() {
-        println("Температура днем : ${dayTemperature - KELVIN_TEMPERATURE}°С")
-        println("Температура ночью: ${nightTemperature - KELVIN_TEMPERATURE}°С")
+        println("Температура днем : $dayTemperature°С")
+        println("Температура ночью: $nightTemperature°С")
         if (precipitation) {
             println("Осадков не ожидается")
         } else {
-            println("ожидаются осадки")
+            println("Ожидаются осадки")
         }
     }
 }
 
 fun main() {
-    val weatherDays = WeatherDays()
+    val weatherDays = WeatherDays(306, 289, true)
     weatherDays.printInfo()
 }
 
