@@ -5,7 +5,6 @@ class PhoneDirectories(
     val phoneNumber: Long,
     val company: String? = null
 ) {
-
     fun printInfo() {
         println("Имя : $name\nНомер : $phoneNumber\nКомпания: ${company ?: "не указано"}")
     }
