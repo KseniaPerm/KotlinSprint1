@@ -13,6 +13,6 @@ fun main() {
         val phoneNumber1 = phoneNumberInput.toLong()
         println("Номер сохранен")
     } catch (e: Exception) {
-        println("Ошибка, необходимо ввести номер телефона")
+        println("Ошибка, необходимо ввести номер телефона. Ошибка ${e::class.simpleName}")
     }
 }
