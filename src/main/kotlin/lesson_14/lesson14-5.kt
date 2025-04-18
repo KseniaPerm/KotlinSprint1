@@ -17,7 +17,12 @@ class Chat {
         val childGroupBy = listOfChildMessages.groupBy { it.parentMessageId }
         for (message in listOfMessages) {
             println("${message.userName} : ${message.message}")
-
+            val childMessages = childGroupBy[message.messageId]
+            if (childMessages != null) {
+                for (child in childMessages) {
+                    println("\t${child.userName} : ${child.message}")
+                }
+            }
         }
     }
 }
@@ -30,7 +35,7 @@ open class Message(
 
 class ChildMessage(
     userName: String = " ",
-    messageId: Int = 1,
+    messageId: Int = 0,
     message: String = " ",
     val parentMessageId: Int
 ) : Message(userName, messageId, message)
@@ -38,9 +43,9 @@ class ChildMessage(
 fun main() {
     val chat = Chat()
     chat.addMessage("Ксю", " Как дела?")
-    chat.addThreadMessage("Катя", "Привет", 1)
+    chat.addThreadMessage("Катя", "Привет", 2)
 
     chat.addMessage("Павел", "Все отлично")
-    chat.addThreadMessage("Ксю", "Что отлично?", 1)
+    chat.addThreadMessage("Ксю", "Что отлично?", 2)
     chat.printChat()
 }
