@@ -1,70 +1,42 @@
 package org.example.lesson_15
 
-interface MovableFlyingCreatures {
-    fun flyingMovement() {
+interface Flyable {
+    fun flyMovement() {
         println("Метод передвижения - полет")
     }
-
-    fun methodOfFlying()
 }
 
-interface MovableSwimmingCreatures {
-    fun swimmingMovement() {
-        println("Метод передвижения - плавание")
-    }
 
-    fun methodOfSwimming()
+interface SuitableForSwimming {
+    fun swimmingMovement()
 }
 
-abstract class Creatures : MovableFlyingCreatures, MovableSwimmingCreatures {
-    abstract val name: String
-    abstract fun methodOfMovement()
-}
-
-class Swimmers(override val name: String) : Creatures() {
-    override fun methodOfMovement() {
-        println("Существо $name - плавает")
-    }
-
-    override fun methodOfFlying() {
-        println("$name летать не может")
-        println()
-    }
-
-    override fun methodOfSwimming() {
-        println("Приготовить плавники и плыть")
+class CrucianCarp(val name: String) : SuitableForSwimming {
+    override fun swimmingMovement() {
+        println("$name- метод передвижения - плавание")
     }
 }
 
-class Flyers(override val name: String) : Creatures() {
-    override fun methodOfMovement() {
-        println("Существо $name - летает")
-    }
 
-    override fun methodOfFlying() {
-        println("Распахнуть крылья и взлететь")
+class Seagull(val name: String) : Flyable {
+    override fun flyMovement() {
+        println("$name- метод передвижения - полет. $name Может плавать по поверхности воды")
     }
+}
 
-    override fun methodOfSwimming() {
-        println("$name плавает на поверхности")
-        println()
+class Duck(val name: String) : Flyable {
+    override fun flyMovement() {
+        println("$name- метод передвижения - полет. $name Может плавать по поверхности воды")
     }
 }
 
 fun main() {
-    val swimmer = Swimmers("Карась")
-    swimmer.methodOfMovement()
-    swimmer.swimmingMovement()
-    swimmer.methodOfSwimming()
-    swimmer.methodOfFlying()
-    val flyerSeagull = Flyers("Чайка")
-    flyerSeagull.methodOfMovement()
-    flyerSeagull.methodOfFlying()
-    flyerSeagull.flyingMovement()
-    flyerSeagull.methodOfSwimming()
-    val flyerDuck = Flyers("Утка")
-    flyerDuck.methodOfMovement()
-    flyerDuck.methodOfFlying()
-    flyerDuck.flyingMovement()
-    flyerDuck.methodOfSwimming()
+    val crucianCarp = CrucianCarp("Карп")
+    crucianCarp.swimmingMovement()
+
+    val seagull = Seagull("Чайка")
+    seagull.flyMovement()
+
+    val duck = Duck("Утка")
+    duck.flyMovement()
 }
