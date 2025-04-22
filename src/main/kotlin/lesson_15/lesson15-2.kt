@@ -19,7 +19,7 @@ class PrecipitationAmount(override val day: Int, var precipitationAmount: Int) :
     }
 }
 
-class WeatherServer() {
+class WeatherServer {
     val listOfTemperature = mutableListOf<Temperature>()
     val listOfPrecipitationAmount = mutableListOf<PrecipitationAmount>()
 
@@ -27,7 +27,7 @@ class WeatherServer() {
         listOfTemperature.add(Temperature(day, temperature))
     }
 
-    fun addPrecipitation(precipitationAmount: Int, day: Int) {
+    fun addPrecipitation(day: Int, precipitationAmount: Int) {
         listOfPrecipitationAmount.add(PrecipitationAmount(precipitationAmount, day))
     }
 
@@ -39,10 +39,8 @@ class WeatherServer() {
 }
 
 fun main() {
-    val temperature = Temperature(1, 18)
-    val precipitation = PrecipitationAmount(1, 3)
-
     val weather = WeatherServer()
-    weather.addTemperature(temperature)
-    weather.addPrecipitation(precipitation)
+    weather.addTemperature(3, 18)
+    weather.addPrecipitation(3, 3)
+    weather.sendMessage(3)
 }
