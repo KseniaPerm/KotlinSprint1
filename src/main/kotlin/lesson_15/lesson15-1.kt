@@ -6,7 +6,6 @@ interface Flyable {
     }
 }
 
-
 interface SuitableForSwimming {
     fun swimmingMovement()
 }
@@ -18,15 +17,23 @@ class CrucianCarp(val name: String) : SuitableForSwimming {
 }
 
 
-class Seagull(val name: String) : Flyable {
+class Seagull(val name: String) : Flyable, SuitableForSwimming {
     override fun flyMovement() {
-        println("$name- метод передвижения - полет. $name Может плавать по поверхности воды")
+        println("$name- метод передвижения - полет.")
+    }
+
+    override fun swimmingMovement() {
+        println("$name Может плавать по поверхности воды")
     }
 }
 
-class Duck(val name: String) : Flyable {
+class Duck(val name: String) : Flyable, SuitableForSwimming {
     override fun flyMovement() {
-        println("$name- метод передвижения - полет. $name Может плавать по поверхности воды")
+        println("$name- метод передвижения - полет.")
+    }
+
+    override fun swimmingMovement() {
+        println("$name Может плавать по поверхности воды")
     }
 }
 
@@ -36,7 +43,9 @@ fun main() {
 
     val seagull = Seagull("Чайка")
     seagull.flyMovement()
+    seagull.swimmingMovement()
 
     val duck = Duck("Утка")
     duck.flyMovement()
+    duck.swimmingMovement()
 }
