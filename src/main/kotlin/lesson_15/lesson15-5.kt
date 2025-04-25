@@ -15,42 +15,39 @@ interface Movable {
     }
 }
 
-interface ToTransportPassengers {
-    fun passengersMovement(humanCapacity: Int) {
-    }
-}
-
 interface ToTransportCargo {
+    val name: String
+    val cargoWeight: Int
     fun cargoMovement(cargoWeight: Int) {
-
+        if (cargoWeight > CARGO_WEIGHT) {
+            println("Грузовой автомобиль  вмещает только $CARGO_WEIGHT кг")
+        } else {
+            println("В автомобиле ${this.name}  ${this.cargoWeight} кг")
+        }
     }
 }
+
+interface ToTransportPassengers {
+    val name: String
+    val humanCapacity: Int
+    fun passengersMovement(humanCapacity: Int) {
+        if (humanCapacity > HUMAN_CAPACITY_TRUCKS) {
+            println("Грузовой автомобиль  вмещает только $HUMAN_CAPACITY_TRUCKS человек")
+        } else {
+            println("В автомобиле ${this.name} человек: ${this.humanCapacity}")
+        }
+    }
+}
+
 
 class Trucks(
     override val name: String,
     override val humanCapacity: Int,
-    val cargoWeight: Int,
+    override val cargoWeight: Int,
 ) :
     Cars(), ToTransportPassengers, ToTransportCargo, Movable {
     override fun carsMovement() {
         println("Автомобиль $name готов к отправке")
-    }
-
-
-    override fun passengersMovement(humanCapacity: Int) {
-        if (humanCapacity > HUMAN_CAPACITY_TRUCKS) {
-            println("Грузовой автомобиль  вмещает только $HUMAN_CAPACITY_TRUCKS человек")
-        } else {
-            println("В автомобиле $name $humanCapacity человек")
-        }
-    }
-
-    override fun cargoMovement(cargoWeight: Int) {
-        if (cargoWeight > CARGO_WEIGHT) {
-            println("Грузовой автомобиль может перевозить не более $CARGO_WEIGHT кг")
-        } else {
-            println("В автомобиль $name загружено $cargoWeight кг")
-        }
     }
 }
 
@@ -64,9 +61,9 @@ class PassengerCars(
 
     override fun passengersMovement(humanCapacity: Int) {
         if (humanCapacity > HUMAN_CAPACITY_PASSENGERS) {
-            println("Грузовой автомобиль вмещает только $HUMAN_CAPACITY_PASSENGERS человек")
+            println("Легковой автомобиль  вмещает только $HUMAN_CAPACITY_PASSENGERS человек")
         } else {
-            println("В автомобиле $name $humanCapacity человек")
+            println("В автомобиле ${this.name} человек: ${this.humanCapacity}")
         }
     }
 }
