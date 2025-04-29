@@ -1,23 +1,25 @@
 package org.example.lesson_16
 
+import kotlin.math.pow
+
 private const val PI = 3.14
 
 class Circle(
-    private val r: Double,
+    private val radius: Double,
 ) {
-    fun circumferenceLength() {
-        val c = (PI * r) + (PI * r)
-        println("Длина окружности равна $c")
+    fun calculateTheCircumference(): Double {
+        val circumferenceLength = 2 * (PI * radius)
+        return circumferenceLength
     }
 
-    fun areaOfCircle() {
-        val s = PI * (r * r)
-        println("Площадь круга равна $s")
+    fun calculateAreaOfCircle(): Double {
+        val areaOfCircle = PI * (radius.pow(2.00))
+        return areaOfCircle
     }
 }
 
 fun main() {
     val circle = Circle(3.00)
-    circle.areaOfCircle()
-    circle.circumferenceLength()
+    circle.calculateAreaOfCircle()
+    circle.calculateTheCircumference()
 }
