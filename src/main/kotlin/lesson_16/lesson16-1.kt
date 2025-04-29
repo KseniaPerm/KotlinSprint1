@@ -3,9 +3,9 @@ package org.example.lesson_16
 class Cube {
     private val number = (1..6).random()
 
-    fun rollOfCube(): Int {
+    fun rollOfCube() {
         println(number)
-        return number
+
     }
 }
 
