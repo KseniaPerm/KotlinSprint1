@@ -20,6 +20,6 @@ class Circle(
 
 fun main() {
     val circle = Circle(3.00)
-    circle.calculateAreaOfCircle()
-    circle.calculateTheCircumference()
+    println("Площадь круга: ${circle.calculateAreaOfCircle()}")
+    println("Длина окружности: ${circle.calculateTheCircumference()}")
 }
