@@ -5,13 +5,6 @@ class Player(
     private var health: Int = 100,
     private var impactForce: Int,
 ) {
-    private fun measureHealth(newHealth: Int) {
-        health = newHealth
-        if (health <= 0) {
-            println("Смерть")
-            impactForce = 0
-        }
-    }
 
     fun takingDamage(impactForce: Int) {
         health -= impactForce
@@ -20,12 +13,19 @@ class Player(
     }
 
     fun treatHealth(impactForce: Int) {
-        if (health > 0) {
+        if (health in 1..100) {
             health += impactForce
             println("Лечение оказано $name. Уровень здоровья $health")
             measureHealth(health)
         } else {
             println("Лечение не оказано.Игрок $name мертв")
+        }
+    }
+    private fun measureHealth(newHealth: Int) {
+        health = newHealth
+        if (health <= 0) {
+            println("Смерть")
+            impactForce = 0
         }
     }
 }
@@ -35,5 +35,5 @@ fun main() {
     player1.takingDamage(20)
     player1.treatHealth(20)
     player1.takingDamage(100)
-    player1.treatHealth(20)
+    player1.treatHealth(80)
 }
