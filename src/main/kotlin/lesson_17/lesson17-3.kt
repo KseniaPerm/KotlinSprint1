@@ -15,7 +15,6 @@ class Folder(
         get() = if (isSecret) field else 0
 }
 
-
 fun main() {
     val folder = Folder(false)
     println("Папка: ${folder.name}")
