@@ -1,20 +1,21 @@
 package org.example.lesson_17
 
-class Ship {
-    var name: String = "Лолита"
+class Ship(
+    name: String,
+    val averageSpeed: Int,
+    val homePort: String,
+) {
+    private var name1 = name
+    var name
+        get() = name1
         set(value) {
-            if (value != name)
-                println("Название корабля менять нельзя!")
-            field = name
+            println("Название корабля менять нельзя!")
         }
-
-    val averageSpeed = 60
-    val homePort = "Сочи"
 }
 
 fun main() {
-    val ship = Ship()
-    println(ship.name)
+    val ship = Ship("Лолита", 60, "Сочи")
+    println("Название корабля: ${ship.name}")
     ship.name = "Ленин"
-    println(ship.name)
+    println("Название корабля: ${ship.name}")
 }
