@@ -1,25 +1,21 @@
 package org.example.lesson_18
 
-open class Animals {
-    open fun getFoodIntake() = ""
+abstract class Animals {
+    abstract fun getFoodIntake(): String
+    open fun sleep() = "Может спать"
 }
 
 class Cat(val name: String) : Animals() {
-    override fun getFoodIntake(): String {
-        return "$name -> ест рыбу"
-    }
+    override fun getFoodIntake(): String = "$name -> ест рыбу"
 }
 
 class Dog(val name: String) : Animals() {
-    override fun getFoodIntake(): String {
-        return "$name -> ест кости"
-    }
+    override fun getFoodIntake(): String = "$name -> ест кости"
 }
 
+
 class Fox(val name: String) : Animals() {
-    override fun getFoodIntake(): String {
-        return "$name -> ест ягоды"
-    }
+    override fun getFoodIntake(): String = "$name -> ест ягоды"
 }
 
 fun main() {
@@ -30,8 +26,11 @@ fun main() {
     val fox = Fox("Алиса")
 
     println(cat.getFoodIntake())
+    println(cat.sleep())
     println(dog.getFoodIntake())
+    println(dog.sleep())
     println(fox.getFoodIntake())
+    println(fox.sleep())
 
     val list: List<Animals> = listOf(cat, dog, fox)
     for (i in list) {
