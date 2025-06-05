@@ -1,29 +1,23 @@
 package org.example.lesson_18
 
 open class Parcel {
-    open fun parcelSurfaceArea() = 0
+    open fun calculateSurfaceArea(): Double = 0.00
 }
 
-class ParcelS(private val length: Int, private val width: Int, private val height: Int) : Parcel() {
-    override fun parcelSurfaceArea(): Int {
-        val square = 2 * (length * width + length * height + width * height)
-        println("Площадь поверхности посылки:")
+open class RectangularParcel(private val length: Double, private val width: Double, private val height: Double) :
+    Parcel() {
+    override fun calculateSurfaceArea(): Double {
+        val square = 2.00 * (length * width + length * height + width * height)
         return square
     }
 }
+class ParcelCube(cubeFace: Double) : RectangularParcel(cubeFace, cubeFace, cubeFace)
 
-class ParcelCube(private val cubeFace: Int) : Parcel() {
-    override fun parcelSurfaceArea(): Int {
-        val square = 6 * (cubeFace * cubeFace)
-        println("Площадь поверхности посылки:")
-        return square
-    }
-}
 
 fun main() {
-    val parcelS = ParcelS(26, 17, 8)
-    println(parcelS.parcelSurfaceArea())
+    val rectangularParcel = RectangularParcel(26.00, 17.00, 8.00)
+    println("Площадь поверхности посылки: ${rectangularParcel.calculateSurfaceArea()}")
 
-    val parcelCube = ParcelCube(8)
-    println(parcelCube.parcelSurfaceArea())
+    val parcelCube = ParcelCube(8.00)
+    println("Площадь поверхности посылки: ${parcelCube.calculateSurfaceArea()}")
 }
