@@ -1,24 +1,37 @@
 package org.example.lesson_18
 
-open class Screen {
-    open fun draw(x: Int, y: Int, figure: String): String {
-        return println("Нарисована фигура $figure, в координатах $x и $y").toString()
+class Screen {
+    fun draw(x: Int, y: Int): String {
+        return "Нарисован квадрат, в координатах $x и $y"
     }
-    open fun draw(x: Float, y: Float, figure: String): String {
-        return println("Нарисована фигура $figure, в координатах $x и $y").toString()
+
+    fun draw(x: Float, y: Float): String {
+        return "Нарисован квадрат, в координатах $x и $y"
+    }
+
+    fun drawCircle(x: Int, y: Int): String {
+        return "Нарисован круг, в координатах $x и $y"
+    }
+
+    fun drawCircle(x: Float, y: Float): String {
+        return "Нарисован круг, в координатах $x и $y"
+    }
+
+    fun drawPoint(x: Int, y: Int): String {
+        return "Нарисована точка, в координатах $x и $y"
+    }
+
+    fun drawPoint(x: Float, y: Float): String {
+        return "Нарисована точка, в координатах $x и $y"
     }
 }
 
 fun main() {
-    val square = Screen()
-    square.draw(5, 5, "Квадрат")
-    square.draw(7.5F, 8.6f, "Квадрат")
-
-    val circle = Screen()
-    circle.draw(3,3,"Круг")
-    circle.draw(3.3F, 4.2F,"Круг")
-
-    val point = Screen()
-    point.draw(1,1,"Точка")
-    point.draw(0.5F, 0.6F,"Точка")
+    val screen = Screen()
+    println(screen.draw(3, 4))
+    println(screen.draw(3.5F, 6.4F))
+    println(screen.drawCircle(6, 8))
+    println(screen.drawCircle(6.4F, 8.8F))
+    println(screen.drawPoint(7, 3))
+    println(screen.drawPoint(6.3F, 9.2F))
 }
