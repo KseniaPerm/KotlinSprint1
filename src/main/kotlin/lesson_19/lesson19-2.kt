@@ -1,53 +1,34 @@
 package org.example.lesson_19
 
 fun main() {
-    val categories = listOf(101, 102, 103)
+    val categories = listOf(Category.CLOTHING, Category.STATIONERY, Category.MISC)
     println("Категории товаров в онлайн магазине: ")
     for (i in categories) {
-        when (i) {
-            Category.CLOTHES.id -> setCategory(Category.CLOTHES)
-            Category.OFFICE_SUPPLIES.id -> setCategory(Category.OFFICE_SUPPLIES)
-            Category.DIFFERENT.id -> setCategory(Category.DIFFERENT)
-        }
-        Thread.sleep(1000)
+        println(i.getCategoryName())
     }
-    val jeans = OnlineStore("Джинсы", 1,"Одежда")
+    Thread.sleep(1000)
+
+    val jeans = OnlineStore("Джинсы", 1, Category.CLOTHING)
     jeans.getProductInformation()
 
-    val pencil = OnlineStore("Карандаш", 2, "Канцелярские принадлежности")
+    val pencil = OnlineStore("Карандаш", 2, Category.STATIONERY)
     pencil.getProductInformation()
 }
 
-enum class Category(val id: Int) {
-    CLOTHES(101) {
-        override fun getCategoryName(): String {
-            return "Одежда"
-        }
-    },
-    OFFICE_SUPPLIES(102) {
-        override fun getCategoryName(): String {
-            return "Канцелярские принадлежности"
-        }
-    },
-    DIFFERENT(103) {
-        override fun getCategoryName(): String {
-            return "Разное"
-        }
-    };
+enum class Category(val nameCategory: String) {
+    CLOTHING("Одежда"),
+    STATIONERY("Канцелярские принадлежности"),
+    MISC("Разное");
 
-    abstract fun getCategoryName(): String
-}
-
-fun setCategory(category: Category) {
-    when (category) {
-        Category.CLOTHES -> println("Одежда")
-        Category.OFFICE_SUPPLIES -> println("Канцелярские товары")
-        Category.DIFFERENT -> println("Разное")
+    open fun getCategoryName() = when (this) {
+        CLOTHING -> "Одежда"
+        STATIONERY -> "Канцелярские товары"
+        MISC -> "Разное"
     }
 }
 
-class OnlineStore(val name: String, val id: Int, val category: String) {
+class OnlineStore(val name: String, private val id: Int, private val category: Category) {
     fun getProductInformation() {
-        println("Название товара: $name, ID товара: $id , Категория: $category")
+        println("Название товара: $name, ID товара: $id , Категория: ${category.getCategoryName()}")
     }
 }
