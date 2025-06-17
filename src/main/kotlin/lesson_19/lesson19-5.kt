@@ -1,5 +1,7 @@
 package org.example.lesson_19
 
+import java.util.*
+
 class Person(val name: String, val gender: Gender)
 
 enum class Gender {
@@ -14,7 +16,7 @@ fun main() {
         val name = readln()
         println("Введите данные для картотеки латинскими буквами, как указано ниже: ")
         println(Gender.entries).toString()
-        val genderInput = readln()
+        val genderInput = readln().uppercase(Locale.getDefault())
         val gender = when (genderInput) {
             "MALE" -> Gender.MALE
             "FEMALE" -> Gender.FEMALE
