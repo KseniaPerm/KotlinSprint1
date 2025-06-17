@@ -1,10 +1,10 @@
 package org.example.lesson_19
 
-class Person(val name: String, val gender: String)
+class Person(val name: String, val gender: Gender)
 
-enum class Gender(val gender: String) {
-    MALE("Мужской"),
-    FEMALE("Женский"),
+enum class Gender {
+    MALE,
+    FEMALE,
 }
 
 fun main() {
@@ -13,15 +13,21 @@ fun main() {
         println("Введите данные для картотеки латинскими буквами: Имя ")
         val name = readln()
         println("Введите данные для картотеки латинскими буквами, как указано ниже: ")
-        for (i in Gender.entries) {
-            println(i)
+        println(Gender.entries).toString()
+        val genderInput = readln()
+        val gender = when (genderInput) {
+            "MALE" -> Gender.MALE
+            "FEMALE" -> Gender.FEMALE
+            else -> {
+                println("Некорректный ввод")
+                continue
+            }
         }
-        val gender = readln()
-        personList.add(Person(name, gender))
-        val person = Person(name, gender)
+        personList += Person(name, gender)
+        println("Добавлен человек. Имя: $name, Пол: ${gender.name}")
     }
-    println("Введены данные")
-    for (person in personList) {
-        println("Имя: ${person.name}: Пол ${person.gender}")
+    println("Введены данные: ")
+    for ((index, person) in personList.withIndex()) {
+        println("${index + 1}. Имя: ${person.name}, Пол: ${person.gender}")
     }
 }
