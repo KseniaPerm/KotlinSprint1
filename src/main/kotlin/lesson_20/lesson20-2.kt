@@ -9,7 +9,9 @@ fun main() {
         println(
             "${player.name} - Здоровье игрока c ${player.currentHealth}" +
                     " - восстановлено до ${player.maxHealth}"
+
         )
+        player.currentHealth = player.maxHealth
     }
     healingPotion(player1)
 }
