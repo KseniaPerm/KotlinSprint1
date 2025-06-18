@@ -1,15 +1,16 @@
 package org.example.lesson_20
 
-class Players(val name: String, val isHavingKey: Boolean)
+class Player(val name: String, val hasKey: Boolean)
 
 fun main() {
-    val player = Players("Медуза", true)
-    val door: (Players) -> String
-    door = { player: Players ->
-        if (player.isHavingKey)
+    val player = Player("Медуза", true)
+    val door = { player: Player ->
+        if (player.hasKey)
             "${player.name} - открыл дверь"
         else
             "Дверь заперта"
     }
+    val player1 = Player("Дно", false)
     println(door(player))
+    println(door(player1))
 }
