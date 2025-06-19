@@ -2,8 +2,8 @@ package org.example.lesson_20
 
 fun main() {
     val userName = "Ксю"
-    val greeting: (String) -> String = {
+    val greeting: () -> String = {
         "С наступающим Новым Годом, $userName"
     }
-    println(greeting(userName))
+    println(greeting())
 }
