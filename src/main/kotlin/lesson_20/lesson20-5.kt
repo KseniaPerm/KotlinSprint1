@@ -1,7 +1,7 @@
 package org.example.lesson_20
 
 class Robot {
-    private var modifier: (String) -> String = { " " }
+    private var modifier: (String) -> String = { it }
     private val listOfPhrases = listOf(
         "Сочиняй мечты", "Не переживай, переживешь", "Если не складывается - вычитай",
         "Сейчас самое время", "Ни дня мимо жизни"
@@ -9,7 +9,6 @@ class Robot {
 
     fun say() {
         val phrase = listOfPhrases.random()
-        println(phrase)
         println(modifier(phrase))
     }
 
