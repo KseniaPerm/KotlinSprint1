@@ -4,7 +4,7 @@ class RegularBook(val name: String, val author: String)
 
 data class DataBook(val name: String, val author: String)
 
-fun main(){
+fun main() {
     val regularBook = RegularBook("Джейн Эйр", "Шарлотта Бронте")
     val regularBook1 = RegularBook("Джейн Эйр", "Шарлотта Бронте")
     val dataBook = DataBook("Джейн Эйр", "Шарлотта Бронте")
