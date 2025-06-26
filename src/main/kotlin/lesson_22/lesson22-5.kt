@@ -7,11 +7,7 @@ data class GalacticGuide(
     val placeDescription: String,
     val date: LocalDateTime,
     val distance: Double,
-) {
-    override fun toString(): String {
-        return "Информация:\nНазвание места: $place\nОписание места: $placeDescription\nДата и время: $date\nРасстояние: $distance в световых годах"
-    }
-}
+)
 
 fun main() {
     val journey = GalacticGuide(
@@ -20,7 +16,7 @@ fun main() {
         LocalDateTime.of(2024, 12, 10, 15, 40),
         4.2
     )
-    println(journey.toString())
+
     val (place, placeDescription, date, distance) = journey
     println(place)
 }
