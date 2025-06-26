@@ -1,21 +1,19 @@
 package org.example.lesson_22
 
-data class MainScreenState(val data: String, val isLoading: Boolean = false) {
+data class MainScreenState(val data: String? = null, val isLoading: Boolean = false) {
     override fun toString(): String {
         return "Информация о состоянии: $data - $isLoading"
     }
 }
 
-data class StateStorage(val mainScreenState: MainScreenState)
-
 class MainScreenViewModel {
-    private var mainScreenState = MainScreenState("Отсутствие данных")
+    private var mainScreenState = MainScreenState()
     fun loadData() {
-        mainScreenState = MainScreenState("Отсутствие данных")
+        mainScreenState = mainScreenState.copy(data = "Отсутствие данных", isLoading = false)
         println(mainScreenState.toString())
-        mainScreenState = MainScreenState("Загрузка данных", isLoading = true)
-        println(mainScreenState)
-        mainScreenState = MainScreenState("Наличие загруженных данных", true)
+        mainScreenState = mainScreenState.copy(data = "Загрузка данных", isLoading = true)
+        println(mainScreenState.toString())
+        mainScreenState = mainScreenState.copy(data = "Наличие загруженных данных", isLoading = false)
         println(mainScreenState)
     }
 }
