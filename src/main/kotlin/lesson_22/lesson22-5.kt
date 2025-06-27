@@ -16,7 +16,6 @@ fun main() {
         LocalDateTime.of(2024, 12, 10, 15, 40),
         4.2
     )
-
-    val (place, placeDescription, date, distance) = journey
-    println(place)
+    val journeyPlace = journey.component1()
+    println(journeyPlace)
 }
